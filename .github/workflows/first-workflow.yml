@@ -1,0 +1,21 @@
+name: First Workflow
+
+on:
+  workflow_dispatch: 
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v3
+
+      - name: Step1
+        run: |
+                 echo "Step1 "
+
+      - name: Step2
+        run: |
+                 echo "Step2 "
+
