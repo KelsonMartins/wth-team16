@@ -1,6 +1,9 @@
 name: First Workflow
 
 on:
+# Trigger the workflow when there is an issue is created
+  issues:
+    types: [opened]
   workflow_dispatch: 
 
 jobs:
@@ -29,5 +32,5 @@ jobs:
           # What does the cow say?
           text: "Good morning London!!!!!"
           # Color of your cow
-          color: green
+          color: red
           
