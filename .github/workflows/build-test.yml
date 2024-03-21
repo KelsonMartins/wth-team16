@@ -10,6 +10,12 @@ on:
     paths:
         - 'Application/**'
 
+env:
+    registryName: 'kql6kvzkfgcamwthreg.azurecr.io'
+    repositoryName : 'wth/dotnetcoreapp'
+    dockerFolderPath : 'Application/src/RazorPagesTestSample'
+    tag: ${{github.run_number}}
+
 jobs:
   build:
 
@@ -27,3 +33,15 @@ jobs:
       run: dotnet build --no-restore Application/src/RazorPagesTestSample/RazorPagesTestSample.csproj
     - name: Test
       run: dotnet test --no-build --verbosity normal Application/tests/RazorPagesTestSample.Tests/RazorPagesTestSample.Tests.csproj
+
+  build-push:
+    name: Build and push to Azure Container Registry
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v4
+    - name: Docker Login
+      run: docker login $registryName -u ${{ secrets.ACR_USERNAME }} -p ${{ secrets.ACR_PASSWORD }}
+    - name: Docker Build
+      run: docker build -t $registryName/$repositoryName:$tag --build-arg build_version=$tag $dockerFolderPath
+    - name: Docker Push
+      run: docker push $registryName/$repositoryName:$tag
