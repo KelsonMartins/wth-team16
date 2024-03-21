@@ -18,4 +18,14 @@ jobs:
       - name: Step2
         run: |
                  echo "Step2 "
-
+  cowsays:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Cowsays
+        uses: mscoutermarsh/cowsays-action@v1
+        with:
+          # What does the cow say?
+          text: "Good morning London!!!!!"
+          # Color of your cow
+          color: green
+          
