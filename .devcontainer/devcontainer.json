@@ -17,5 +17,6 @@
 				"ms-dotnettools.csharp"
 			]
 		}
-	}
+	},
+    "postCreateCommand": "dotnet restore /workspaces/wth-team16/Application/src/RazorPagesTestSample/RazorPagesTestSample.sln" 
 }
