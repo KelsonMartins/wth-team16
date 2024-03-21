@@ -20,6 +20,7 @@ jobs:
           resourceGroupName: ${{ vars.TEAM_16_RG }}
           template: ./InfrastructureAsCode/main.bicep
           deploymentMode: 'Incremental'
+          region: 'westeurope'
 
 
 
