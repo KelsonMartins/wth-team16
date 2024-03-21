@@ -1,0 +1,21 @@
+{
+	"name": "C# (.NET)",
+	"image": "mcr.microsoft.com/devcontainers/dotnet:0-6.0",
+	"features": {
+		"ghcr.io/devcontainers/features/azure-cli:1": {
+			"installBicep": true,
+			"version": "latest"
+		}
+	},
+    "customizations": {
+		"vscode": {
+			"extensions": [
+				"vsls-contrib.codetour",
+				"GitHub.copilot",
+				"GitHub.copilot-chat",
+				"ms-dotnettools.csdevkit",
+				"ms-dotnettools.csharp"
+			]
+		}
+	}
+}
