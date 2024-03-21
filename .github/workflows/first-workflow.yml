@@ -6,6 +6,13 @@ on:
     types: [opened]
   workflow_dispatch: 
 
+# define an environment variable with a string in it and pass it into one of the echo steps in job 1
+env:
+  MY_VAR: "Hello from the environment"
+  OUR_VAR: "Testing another variable"
+  
+# pass MY_VAR into one of the echo steps in job 1
+
 jobs:
   build:
     runs-on: ubuntu-latest
@@ -16,7 +23,7 @@ jobs:
 
       - name: Step1
         run: |
-                 echo "Step1 "
+                 echo "Step1 $MY_VAR"
 
       - name: Step2
         run: |
@@ -32,5 +39,5 @@ jobs:
           # What does the cow say?
           text: "Good morning London!!!!!"
           # Color of your cow
-          color: red
+          color: "red"
           

@@ -1,0 +1,27 @@
+# create github workflow with manual trigger
+name: Deploy
+
+on:
+  workflow_dispatch:
+
+jobs:
+  release:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v3
+    
+      # add step to login to azure
+      - name: login
+        uses: azure/login@v1
+        with:
+          creds: ${{ secrets.TEAM_16_AZURE_CREDS }}
+      - name: Run ARM deploy
+        uses: azure/arm-deploy@v1
+        with:
+          # subscriptionId: ${{ secrets.TEAM_16_AZURE_SUBSCRIPTION }}
+          resourceGroupName: ${{ secrets.TEAM_16_RG }}
+          template: ./main.bicep
+          # parameters: ./azuredeploy.parameters.json
+          deploymentMode: 'Incremental'
+
+

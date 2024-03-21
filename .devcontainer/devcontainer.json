@@ -14,7 +14,9 @@
 				"GitHub.copilot",
 				"GitHub.copilot-chat",
 				"ms-dotnettools.csdevkit",
-				"ms-dotnettools.csharp"
+				"ms-dotnettools.csharp",
+				"GitHub.vscode-github-actions",
+				"ms-azuretools.vscode-bicep"
 			]
 		}
 	},
