@@ -19,7 +19,7 @@ jobs:
         uses: azure/arm-deploy@v1
         with:
           resourceGroupName: ${{ vars.TEAM_16_RG }}
-          template: ./main.bicep
+          template: ./InfrastructureAsCode/main.bicep
           deploymentMode: 'Incremental'
 
 
