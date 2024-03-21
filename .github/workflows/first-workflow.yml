@@ -19,6 +19,8 @@ jobs:
         run: |
                  echo "Step2 "
   cowsays:
+  # run this job after the build job
+    needs: build
     runs-on: ubuntu-latest
     steps:
       - name: Cowsays
